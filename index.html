@@ -5,8 +5,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ExcepApps</title>
         <style>
+            .padding-header {
+                padding: 40px 0 40px 0;
+            }
+            .margin-footer {
+                margin: 40px 0 40px 0;
+            }
             .jumbotron-margin-top {
                 /*margin-top: 20px;*/
+            }
+            /*html {
+                background: url('p6.png') no-repeat center center fixed; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }*/
+            .thin-border {
+                border: 1px solid #f0f0f0;
+            }
+            .map-height {
+                height: 150px;
+            }
+            .logo-size {
+                height: 250px;
+                max-width: 250px;
             }
         </style>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">        
@@ -16,24 +39,57 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+        <!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
     </head>
     <body>
-        <div>  
-            <header class="page-header">   
-                <h1>ExcepApps...</h1>
+        <div class="container">  
+            <header class="padding-header">
+                <div class="row text-center">   
+                    <img class="logo-size" src="excepapps.png" alt="ExcepApps...">
+                </div>   
             </header>
-            <div class="jumbotron jumbotron-margin-top">
-                <h1>Info...</h1>  
-                <p>Some more info...</p>
-                <p><a href="#">Download it...</a></p>
+            <section>
+                <div class="jumbotron jumbotron-margin-top">
+                    <h2 class="text-center">ExcepApps is a new company specializing in applications for individuals with exceptional needs.</h2> 
+                    <p class="text-center">Sign up for our newsletter!</p>
+                    <p class="text-center"><a class="btn btn-success btn-lg" href="#">Sign Up Here</a></p>
+                </div>
+                <!--<div class="row">
+                    <div class="thin-border col-sm-4">
+                        <b class="glyphicon glyphicon-camera"></b> 
+                        <h2>We are dedicated to building the best software in the world...</h2>
+                        <p>Here's how we do it...</p>
+                    </div>
+                    <div class="thin-border col-sm-4">
+                        <h2>We are dedicated to building the best software in the world...</h2>
+                        <p>Here's how we do it...</p>
+                    </div>
+                    <div class="thin-border col-sm-4">
+                        <h2>...</h2>
+                        <p>...</p>
+                    </div>
+                </div>-->
+            </section>
+            <div class="col-sm-12" style="margin-bottom: 20px;">
+                <h3> We create products that focus on boosting academic achievement, building social skills, strengthening appropriate behavior, and assisting communication needs.</h3>
+                <h4>Our mission is to provide individuals with applications that produce real benefits in a variety of settings; such as the classroom, therapy, medical settings, and everyday life.</h4>
             </div>
-            <div>
+            <footer class="margin-footer text-center">
                 <p>&copy; 2014 ExcepApps</p>
-            </div>
+            </footer>
         </div>
         <script>
             (function($) {
-                // 
+                /*function initialize() {
+                    var map_canvas = document.getElementById('map_canvas');
+                    var mapOptions = {
+                        center: new google.maps.LatLng(44.5403, -78.5463),
+                        zoom: 8,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    }
+                    var map = new google.maps.Map(map_canvas, map_options);
+                }
+                google.maps.event.addDomListener(window, 'load', initialize);*/
             }(jQuery));
         </script>
     </body>
