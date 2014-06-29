@@ -37,9 +37,11 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+        <!--<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>-->
         <!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
+        <script src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+        <script>Parse.initialize("SooNnnrJHY0ODHJyUIujPJLwoNNRfgHPt7cFCN7R", "WC7gUdg113JYUZOW5eIvbi7yAiE66Jl579TZvOSJ");</script>
     </head>
     <body>
         <div class="container">  
@@ -48,11 +50,24 @@
                     <img class="logo-size" src="excepapps.png" alt="ExcepApps...">
                 </div>   
             </header>
+            <div id="textModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Sign Up for Our Newsletter!</h4>
+                        </div>
+                        <div class="modal-body">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
             <section>
                 <div class="jumbotron jumbotron-margin-top">
                     <h2 class="text-center">ExcepApps is a new company specializing in applications for individuals with exceptional needs.</h2> 
                     <p class="text-center">Sign up for our newsletter!</p>
-                    <p class="text-center"><a class="btn btn-success btn-lg" href="#">Sign Up Here</a></p>
+                    <p class="text-center"><a class="btn btn-success btn-lg" data-toggle="modal" data-target="#textModal" href="#textModal">Sign Up Here</a></p>
                 </div>
                 <!--<div class="row">
                     <div class="thin-border col-sm-4">
@@ -70,9 +85,17 @@
                     </div>
                 </div>-->
             </section>
-            <div class="col-sm-12" style="margin-bottom: 20px;">
-                <h3> We create products that focus on boosting academic achievement, building social skills, strengthening appropriate behavior, and assisting communication needs.</h3>
+            <div class="col-sm-4" style="margin-bottom: 20px;">
+                <h4> We create products that focus on boosting academic achievement, building social skills, strengthening appropriate behavior, and assisting communication needs.</h4>
+            </div>
+            <div class="col-sm-4" style="margin-bottom: 20px;">
                 <h4>Our mission is to provide individuals with applications that produce real benefits in a variety of settings; such as the classroom, therapy, medical settings, and everyday life.</h4>
+            </div>
+            <div class="col-sm-4" style="margin-bottom: 20px;">
+                <h4>ExcepApps has been accepted into The Iron Yard's Digital Health Accelerator Program!</h4>
+                <div class="text-center">
+                    <img src="http://theironyard.com/images/iron-yard-logo.svg" alt="The Iron Yard"> 
+                </div>
             </div>
             <footer class="margin-footer text-center">
                 <p>&copy; 2014 ExcepApps</p>
