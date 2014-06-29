@@ -31,6 +31,9 @@
                 height: 250px;
                 max-width: 250px;
             }
+            .sign-up-msg {
+                padding-top: 25px;
+            }
         </style>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">        
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -75,7 +78,10 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-default">Send</button>
+                            <button type="button" id="sign-up" class="btn btn-default">Sign Up</button>
+                            <div class="text-center">
+                                <p class="sign-up-msg"></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -120,6 +126,30 @@
         </div>
         <script>
             (function($) {
+                function parseSignUp() {
+                    var name, email, password, user;
+                    name = $('#name').val();
+                    email = $('#email').val();
+                    password = $('#password').val();
+                    user = new Parse.User();
+                    user.set("username", name);
+                    user.set("email", email);
+                    user.set("password", password);
+                    user.signUp(null, {
+                        success: function(user) {
+                            $('.sign-up-msg').text("You are signed up for ExcepApps' Newsletter!");
+                            setTimeout(function() {
+                                $('.close').click();
+                            }, 3000);
+                        },
+                        error: function(user, error) {
+                            $('.sign-up-msg').text(error.message);
+                        }
+                    });
+                }
+                $('#sign-up').click(function(){
+                    parseSignUp();
+                });
                 /*function initialize() {
                     var map_canvas = document.getElementById('map_canvas');
                     var mapOptions = {
