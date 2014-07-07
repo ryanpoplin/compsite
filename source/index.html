@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ExcepApps</title>
+        <style>
+            .glyphicons {
+                font-size: 3em;
+                color: #3a87ad;
+                display: block;
+                text-align: center;
+            }
+            .padding-header {
+                padding: 40px 0 40px 0;
+            }
+            .margin-footer {
+                margin: 40px 0 40px 0;
+            }
+            .logo-size {
+                height: 250px;
+                max-width: 250px;
+            }
+            .sign-up-msg {
+                padding-top: 25px;
+            }
+        </style>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+        <!--<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>-->
+        <script src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+        <script>Parse.initialize("SooNnnrJHY0ODHJyUIujPJLwoNNRfgHPt7cFCN7R", "WC7gUdg113JYUZOW5eIvbi7yAiE66Jl579TZvOSJ");</script>
+    </head>
+    <body>
+        <div class="container">  
+            <header class="padding-header">
+                <div class="row text-center">   
+                    <a href="#"><img class="logo-size" src="excepapps.png" alt="ExcepApps..."></a>
+                </div>   
+            </header>
+            <div id="textModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Sign Up for Our Newsletter!</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label for="Name">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Email">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Password">Create a Password</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Password">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" id="sign-up" class="btn btn-default">Sign Up</button>
+                            <div class="text-center">
+                                <p class="sign-up-msg"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section>
+                <div class="jumbotron jumbotron-margin-top">
+                    <h2 class="text-center">ExcepApps is a new company specializing in mobile applications for individuals with exceptional needs.</h2> 
+                    <p class="text-center">Sign up for our newsletter!</p>
+                    <p class="text-center"><a class="btn btn-success btn-lg" data-toggle="modal" data-target="#textModal" href="#textModal">Sign Up Here</a></p>
+                    <p class="text-center">Questions? Email us!</p>
+                    <p class="text-center"><a class="btn btn-success btn-lg" href="mailto:excepapps@gmail.com?Subject=Make%20a%20subject..." target="_top">Contact Us Here</a></p>
+                </div>
+            </section>
+            <div class="col-sm-4 text-center" style="margin-bottom: 20px;">
+                <b class="glyphicon glyphicons glyphicon-info-sign"></b>
+                <h3 style="text-align: left"> We create mobile applications that focus on boosting academic achievement, building social skills, strengthening appropriate behavior, and assisting communication needs.</h3>
+            </div>
+            <div class="col-sm-4 text-center" style="margin-bottom: 20px;">
+                <b class="glyphicon glyphicons glyphicon-heart"></b> 
+                <h3 style="text-align: left;">Our mission is to provide products that produce real benefits in a variety of settings; such as the classroom, therapy, medical settings, and everyday life. We truly care about enhancing the lives of individuals with exceptional needs.</h3>
+            </div>
+            <div class="col-sm-4 text-center" style="margin-bottom: 20px;">
+                <b class="glyphicon glyphicons glyphicon-ok"></b>
+                <h3 style="text-align: left;">ExcepApps has been accepted into The Iron Yard's Digital Health Accelerator Program!</h3>
+                <div class="text-center">
+                    <a href="http://www.theironyard.com" target="a_link"><img src="http://theironyard.com/images/iron-yard-logo.svg" alt="The Iron Yard"></a>
+                </div>
+            </div>
+            <footer class="margin-footer text-center">
+                <p style="padding-top: 40px;">&copy; 2014 ExcepApps</p>
+            </footer>
+        </div>
+        <script>
+            (function($) {
+                function parseSignUp() {
+                    var name, email, password, user;
+                    name = $('#name').val();
+                    email = $('#email').val();
+                    password = $('#password').val();
+                    user = new Parse.User();
+                    user.set("username", name);
+                    user.set("email", email);
+                    user.set("password", password);
+                    user.signUp(null, {
+                        success: function(user) {
+                            $('.sign-up-msg').text("You are signed up for ExcepApps' Newsletter!");
+                            setTimeout(function() {
+                                $('.close').click();
+                            }, 3000);
+                        },
+                        error: function(user, error) {
+                            $('.sign-up-msg').text(error.message);
+                        }
+                    });
+                }
+                $('#sign-up').click(function(){
+                    parseSignUp();
+                });
+            }(jQuery));
+        </script>
+    </body>
+</html>
